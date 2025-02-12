@@ -84,7 +84,7 @@ app.get('/fetchDealers', async (req, res) => {
   app.get('/fetchDealer/:id', async (req, res) => {
     try {
       const id = parseInt(req.params.id);
-      const dealer = await Dealerships.findOne({ id: id });
+      const dealer = await Dealerships.find({ id: id });
       if (!dealer) {
         return res.status(404).json({ message: "Dealer not found" });
       }
