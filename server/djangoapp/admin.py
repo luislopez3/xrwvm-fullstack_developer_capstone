@@ -3,7 +3,7 @@ from .models import CarMake, CarModel  # Import your models
 
 
 # CarModelInline class - Allows editing CarModel within CarMake
-class CarModelInline(admin.TabularInline):  
+class CarModelInline(admin.TabularInline):
     """Allows inline editing of CarModel inside CarMake."""
     model = CarModel
     extra = 1  # Show 1 empty row for adding new CarModels within CarMake
