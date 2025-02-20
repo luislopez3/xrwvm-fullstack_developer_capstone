@@ -3,7 +3,7 @@ from .models import CarMake, CarModel
 
 def initiate():
     """Function to populate CarMake and CarModel data."""
-    
+
     car_make_data = [
         {"name": "NISSAN", "description": "Great cars. Japanese technology"},
         {"name": "Mercedes", "description": "Great cars. German technology"},
