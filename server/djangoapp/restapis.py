@@ -37,9 +37,9 @@ def get_request(endpoint, **kwargs):
 
 # Function for retrieving sentiments
 def analyze_review_sentiments(text):
-    """Analyze the sentiment of a review using an external sentiment analyzer."""
+    """Analyze sentiment of a review using an external sentiment analyzer."""
     request_url = f"{sentiment_analyzer_url}analyze/{text}"
-    
+
     try:
         response = requests.get(request_url)
         return response.json()
