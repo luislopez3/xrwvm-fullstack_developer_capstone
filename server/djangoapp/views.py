@@ -63,7 +63,9 @@ def registration(request):
         login(request, user)
         return JsonResponse({"userName": username, "status": "Authenticated"})
     else:
-        return JsonResponse({"userName": username, "error": "Already Registered"})
+        return JsonResponse(
+            {"userName": username, "error": "Already Registered"}
+        )
 
 
 # Get a list of dealerships (all by default, filtered by state if provided)
@@ -84,6 +86,9 @@ def get_dealer_reviews(request, dealer_id):
         for review_detail in reviews:
             try:
                 response = analyze_review_sentiments(review_detail["review"])
+                review_detail["sentiment"] = response.get(
+                    "sentiment", "neutral"
+                )
                 review_detail["sentiment"] = response.get("sentiment", "neutral")
             except Exception as e:
                 logger.error(f"Error analyzing sentiment: {e}")
